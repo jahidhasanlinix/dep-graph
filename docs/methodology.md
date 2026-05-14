@@ -62,3 +62,14 @@ Then rerun:
 ```bash
 COMPOSIO_API_KEY=your_real_key sh scaffold.sh
 ```
+
+## Node/npm execution
+
+If you prefer Node/npm instead of Bun, use:
+
+```bash
+npm install
+npm run build:graph:node
+```
+
+The Node script path uses `tsx src/index.ts`. The entrypoint intentionally avoids top-level `await` so `tsx` can run it even when it transforms TypeScript through a CommonJS-compatible path.

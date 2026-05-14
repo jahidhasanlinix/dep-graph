@@ -501,4 +501,7 @@ function t(slug: string, toolkit: ToolkitSlug, inputs: Record<string, string>, o
   return { slug, toolkit: { slug: toolkit }, description, input_parameters: make(inputs), output_parameters: make(outputs) };
 }
 
-await main();
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
