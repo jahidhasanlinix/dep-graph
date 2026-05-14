@@ -145,6 +145,7 @@ const CREATION_VERBS = ["CREATE", "INSERT", "GENERATE"];
 async function main() {
   await mkdir(OUT_DIR, { recursive: true });
   const tools = await loadTools();
+  console.log(`Building graph from ${tools.length} tools (this can take a while for large toolkits)...`);
   const graph = buildGraph(tools);
   await writeFile(RAW_FILE, JSON.stringify(tools, null, 2));
   await writeFile(GRAPH_FILE, JSON.stringify(graph, null, 2));
@@ -159,7 +160,10 @@ async function loadTools(): Promise<Tool[]> {
   if (env.COMPOSIO_API_KEY) {
     try {
       const fetched: Tool[] = [];
-      for (const toolkit of TOOLKITS) fetched.push(...(await fetchToolkitTools(toolkit, env.COMPOSIO_API_KEY)));
+      for (const toolkit of TOOLKITS) {
+        console.log(`Fetching Composio tools for toolkit "${toolkit}"...`);
+        fetched.push(...(await fetchToolkitTools(toolkit, env.COMPOSIO_API_KEY)));
+      }
       if (fetched.length > 0) return dedupeTools(fetched);
     } catch (error) {
       console.warn(`Composio fetch failed; using curated seed schemas. Reason: ${String(error)}`);
@@ -205,6 +209,7 @@ async function fetchToolkitTools(toolkit: ToolkitSlug, apiKey: string): Promise<
       result.push(...(payload.items ?? []));
       cursor = payload.next_cursor ?? undefined;
     }
+    console.log(`  ${toolkit}: ${result.length} tools${cursor ? ", more pages..." : " (done)"}`);
   } while (cursor);
   return result;
 }
