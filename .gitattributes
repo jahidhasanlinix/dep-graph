@@ -1,0 +1,11 @@
+# Keep shell scripts runnable from WSL/Linux even when the repo is checked out on Windows.
+*.sh text eol=lf
+
+# Keep source and generated text artifacts normalized and reviewable.
+*.ts text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.dot text eol=lf
+*.html text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf

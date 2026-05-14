@@ -43,3 +43,22 @@ The script falls back to representative seed schemas when the Composio API is un
 3. Run `bun run check` to verify the TypeScript entry point bundles successfully.
 4. Open `dist/dependency-graph.html` in a browser to inspect the visual graph, or inspect `dist/dependency-graph.json` for the complete dependency and input-resolution data.
 5. Submit with `sh upload.sh <your_email>`; if you intentionally do not want session traces, use `sh upload.sh <your_email> --skip-session`.
+
+## WSL line-ending troubleshooting
+
+If `bash scaffold.sh` prints errors like `$'\r': command not found`, `set: Illegal option -`, or `syntax error: unexpected end of file`, the script was checked out with Windows CRLF line endings. This repository includes `.gitattributes` to force LF endings for shell scripts, but an existing checkout may still need to be renormalized. From WSL, run one of:
+
+```bash
+# Quick one-file fix
+sed -i 's/\r$//' scaffold.sh
+
+# Or ask git to re-checkout files with the repository line-ending rules
+git rm --cached -r .
+git reset --hard
+```
+
+Then rerun:
+
+```bash
+COMPOSIO_API_KEY=your_real_key sh scaffold.sh
+```
