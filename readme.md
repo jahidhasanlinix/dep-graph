@@ -1,4 +1,4 @@
-# build a tool dependency graph (60-120 mins)
+# build a tool dependency graph
 
 we care about the quality and structure of the dependency relationships you discover
 
@@ -13,7 +13,6 @@ a second more dense exmaple
 the send email tool needs an email, if you give a name it should fetch the name from contacts and then you can send the email
 
 
-
 when we agentically execute actions inside composio, we need to know either what info to get from the user or what other action we should take before we execute the action.
 
 you are supposed to build a dependency graph for this
@@ -21,6 +20,8 @@ you are supposed to build a dependency graph for this
 to keep this limited in scope, we expect you to only do it for [Google Super](https://docs.composio.dev/toolkits/googlesuper) and [Github](https://docs.composio.dev/toolkits/github)
 
 the final submission should be a visualized dependency graph where i can see connection (this is not super important just should exist for me to see if graph with edges and nodes)
+
+exported graph figures for review are in [`assets/`](./assets/) (PNG screenshots of the graph with nodes and edges).
 
 ## get started
 

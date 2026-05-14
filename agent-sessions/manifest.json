@@ -1,0 +1,38 @@
+{
+  "mode": "collected",
+  "generatedAt": "2026-05-14T00:45:36.803Z",
+  "projectRoot": "/mnt/d/dep-graph",
+  "outputDir": "/mnt/d/dep-graph/agent-sessions",
+  "windowMinutes": 90,
+  "cutoffTime": "2026-05-13T23:15:36.784Z",
+  "providers": {
+    "codex": {
+      "found": 0,
+      "copied": 0,
+      "skippedReason": "Missing path: /home/mypc/.codex/sessions",
+      "artifacts": []
+    },
+    "claude": {
+      "found": 0,
+      "copied": 0,
+      "skippedReason": "No recent Claude sessions matched this project",
+      "artifacts": []
+    },
+    "opencode": {
+      "found": 0,
+      "copied": 0,
+      "skippedReason": "Missing path: /home/mypc/.local/share/opencode/opencode.db",
+      "artifacts": []
+    },
+    "cursor": {
+      "found": 0,
+      "copied": 0,
+      "skippedReason": "No Cursor workspaceStorage directory found",
+      "artifacts": []
+    }
+  },
+  "artifacts": [],
+  "totalArtifacts": 0,
+  "emptyUploadApproved": true,
+  "emptyUploadApprovedAt": "2026-05-14T00:45:40.494Z"
+}
