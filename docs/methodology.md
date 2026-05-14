@@ -35,3 +35,11 @@ The script falls back to representative seed schemas when the Composio API is un
 - `dist/dependency-graph.json`: complete graph plus per-input resolution decisions.
 - `dist/dependency-graph.dot`: Graphviz DOT for external visualization.
 - `dist/dependency-graph.html`: self-contained visual graph and input resolution table.
+
+## How to run and verify
+
+1. Put `COMPOSIO_API_KEY=...` in `.env`, or run the fixed scaffold with `COMPOSIO_API_KEY=... sh scaffold.sh` to create `.env` with both Composio and OpenRouter keys. The scaffold now sends the required `x-composio-api-key` header and can also reuse an existing `.env`.
+2. Run `bun run build:graph` to generate the latest graph artifacts.
+3. Run `bun run check` to verify the TypeScript entry point bundles successfully.
+4. Open `dist/dependency-graph.html` in a browser to inspect the visual graph, or inspect `dist/dependency-graph.json` for the complete dependency and input-resolution data.
+5. Submit with `sh upload.sh <your_email>`; if you intentionally do not want session traces, use `sh upload.sh <your_email> --skip-session`.
