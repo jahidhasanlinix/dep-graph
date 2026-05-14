@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "build:graph": "bun src/index.ts",
+    "check": "bun build src/index.ts --outfile=/tmp/dep-graph-check.js"
+  },
   "dependencies": {
     "@anthropic-ai/claude-agent-sdk": "^0.2.87",
     "zod": "^4.3.6"
