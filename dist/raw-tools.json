@@ -1,0 +1,1515 @@
+[
+  {
+    "slug": "GOOGLESUPER_FETCH_EMAILS",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Fetch emails from Gmail; list messages and threads.",
+    "input_parameters": {},
+    "output_parameters": {
+      "message_id": {
+        "type": "string",
+        "required": true,
+        "description": "message_id parameter"
+      },
+      "thread_id": {
+        "type": "string",
+        "required": true,
+        "description": "thread_id parameter"
+      },
+      "from_email": {
+        "type": "string",
+        "required": true,
+        "description": "from_email parameter"
+      },
+      "subject": {
+        "type": "string",
+        "required": true,
+        "description": "subject parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Fetch a Gmail message by ID.",
+    "input_parameters": {
+      "message_id": {
+        "type": "string",
+        "required": true,
+        "description": "message_id parameter"
+      }
+    },
+    "output_parameters": {
+      "message_id": {
+        "type": "string",
+        "required": true,
+        "description": "message_id parameter"
+      },
+      "thread_id": {
+        "type": "string",
+        "required": true,
+        "description": "thread_id parameter"
+      },
+      "attachment_id": {
+        "type": "string",
+        "required": true,
+        "description": "attachment_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_FETCH_MESSAGE_BY_THREAD_ID",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Fetch Gmail messages in a thread.",
+    "input_parameters": {
+      "thread_id": {
+        "type": "string",
+        "required": true,
+        "description": "thread_id parameter"
+      }
+    },
+    "output_parameters": {
+      "message_id": {
+        "type": "string",
+        "required": true,
+        "description": "message_id parameter"
+      },
+      "thread_id": {
+        "type": "string",
+        "required": true,
+        "description": "thread_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_CREATE_REPLY",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Reply to an existing Gmail thread.",
+    "input_parameters": {
+      "thread_id": {
+        "type": "string",
+        "required": true,
+        "description": "thread_id parameter"
+      },
+      "body": {
+        "type": "string",
+        "required": true,
+        "description": "body parameter"
+      }
+    },
+    "output_parameters": {
+      "message_id": {
+        "type": "string",
+        "required": true,
+        "description": "message_id parameter"
+      },
+      "thread_id": {
+        "type": "string",
+        "required": true,
+        "description": "thread_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_FORWARD_MESSAGE",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Forward an email message.",
+    "input_parameters": {
+      "message_id": {
+        "type": "string",
+        "required": true,
+        "description": "message_id parameter"
+      },
+      "to": {
+        "type": "string",
+        "required": true,
+        "description": "to parameter"
+      },
+      "body": {
+        "type": "string",
+        "required": true,
+        "description": "body parameter"
+      }
+    },
+    "output_parameters": {
+      "message_id": {
+        "type": "string",
+        "required": true,
+        "description": "message_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_CREATE_EMAIL_DRAFT",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Create a Gmail draft.",
+    "input_parameters": {
+      "to": {
+        "type": "string",
+        "required": true,
+        "description": "to parameter"
+      },
+      "subject": {
+        "type": "string",
+        "required": true,
+        "description": "subject parameter"
+      },
+      "body": {
+        "type": "string",
+        "required": true,
+        "description": "body parameter"
+      }
+    },
+    "output_parameters": {
+      "draft_id": {
+        "type": "string",
+        "required": true,
+        "description": "draft_id parameter"
+      },
+      "message_id": {
+        "type": "string",
+        "required": true,
+        "description": "message_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_SEND_EMAIL",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Send email to recipients.",
+    "input_parameters": {
+      "to": {
+        "type": "string",
+        "required": true,
+        "description": "to parameter"
+      },
+      "subject": {
+        "type": "string",
+        "required": true,
+        "description": "subject parameter"
+      },
+      "body": {
+        "type": "string",
+        "required": true,
+        "description": "body parameter"
+      }
+    },
+    "output_parameters": {
+      "message_id": {
+        "type": "string",
+        "required": true,
+        "description": "message_id parameter"
+      },
+      "thread_id": {
+        "type": "string",
+        "required": true,
+        "description": "thread_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_GET_CONTACTS",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Get Google contacts for resolving people to email addresses.",
+    "input_parameters": {},
+    "output_parameters": {
+      "email": {
+        "type": "string",
+        "required": true,
+        "description": "email parameter"
+      },
+      "name": {
+        "type": "string",
+        "required": true,
+        "description": "name parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_GET_PEOPLE",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Search Google People profile/contact data.",
+    "input_parameters": {},
+    "output_parameters": {
+      "email": {
+        "type": "string",
+        "required": true,
+        "description": "email parameter"
+      },
+      "name": {
+        "type": "string",
+        "required": true,
+        "description": "name parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_FIND_FILE",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Find a Google Drive file.",
+    "input_parameters": {
+      "query": {
+        "type": "string",
+        "required": true,
+        "description": "query parameter"
+      }
+    },
+    "output_parameters": {
+      "file_id": {
+        "type": "string",
+        "required": true,
+        "description": "file_id parameter"
+      },
+      "name": {
+        "type": "string",
+        "required": true,
+        "description": "name parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_FIND_FOLDER",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Find a Google Drive folder.",
+    "input_parameters": {
+      "query": {
+        "type": "string",
+        "required": true,
+        "description": "query parameter"
+      }
+    },
+    "output_parameters": {
+      "folder_id": {
+        "type": "string",
+        "required": true,
+        "description": "folder_id parameter"
+      },
+      "file_id": {
+        "type": "string",
+        "required": true,
+        "description": "file_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_CREATE_FILE",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Create a Drive file or folder.",
+    "input_parameters": {
+      "name": {
+        "type": "string",
+        "required": true,
+        "description": "name parameter"
+      },
+      "folder_id": {
+        "type": "string",
+        "required": true,
+        "description": "folder_id parameter"
+      }
+    },
+    "output_parameters": {
+      "file_id": {
+        "type": "string",
+        "required": true,
+        "description": "file_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_GET_FILE_METADATA",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Get Drive file metadata.",
+    "input_parameters": {
+      "file_id": {
+        "type": "string",
+        "required": true,
+        "description": "file_id parameter"
+      }
+    },
+    "output_parameters": {
+      "file_id": {
+        "type": "string",
+        "required": true,
+        "description": "file_id parameter"
+      },
+      "name": {
+        "type": "string",
+        "required": true,
+        "description": "name parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_DOWNLOAD_FILE",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Download a file from Drive.",
+    "input_parameters": {
+      "file_id": {
+        "type": "string",
+        "required": true,
+        "description": "file_id parameter"
+      }
+    },
+    "output_parameters": {
+      "content": {
+        "type": "string",
+        "required": true,
+        "description": "content parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_GET_DOCUMENT_BY_ID",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Get a Google Doc by ID.",
+    "input_parameters": {
+      "document_id": {
+        "type": "string",
+        "required": true,
+        "description": "document_id parameter"
+      }
+    },
+    "output_parameters": {
+      "document_id": {
+        "type": "string",
+        "required": true,
+        "description": "document_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_CREATE_DOCUMENT",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Create a Google document.",
+    "input_parameters": {
+      "title": {
+        "type": "string",
+        "required": true,
+        "description": "title parameter"
+      }
+    },
+    "output_parameters": {
+      "document_id": {
+        "type": "string",
+        "required": true,
+        "description": "document_id parameter"
+      },
+      "file_id": {
+        "type": "string",
+        "required": true,
+        "description": "file_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_INSERT_TEXT_ACTION",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Insert text into a Google Doc.",
+    "input_parameters": {
+      "document_id": {
+        "type": "string",
+        "required": true,
+        "description": "document_id parameter"
+      },
+      "text": {
+        "type": "string",
+        "required": true,
+        "description": "text parameter"
+      }
+    },
+    "output_parameters": {
+      "document_id": {
+        "type": "string",
+        "required": true,
+        "description": "document_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_CREATE_GOOGLE_SHEET1",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Create a Google Sheet.",
+    "input_parameters": {
+      "title": {
+        "type": "string",
+        "required": true,
+        "description": "title parameter"
+      }
+    },
+    "output_parameters": {
+      "spreadsheet_id": {
+        "type": "string",
+        "required": true,
+        "description": "spreadsheet_id parameter"
+      },
+      "file_id": {
+        "type": "string",
+        "required": true,
+        "description": "file_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_GET_SPREADSHEET_INFO",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Get spreadsheet info.",
+    "input_parameters": {
+      "spreadsheet_id": {
+        "type": "string",
+        "required": true,
+        "description": "spreadsheet_id parameter"
+      }
+    },
+    "output_parameters": {
+      "spreadsheet_id": {
+        "type": "string",
+        "required": true,
+        "description": "spreadsheet_id parameter"
+      },
+      "sheet_id": {
+        "type": "string",
+        "required": true,
+        "description": "sheet_id parameter"
+      },
+      "sheet_name": {
+        "type": "string",
+        "required": true,
+        "description": "sheet_name parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_GET_SHEET_NAMES",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "List sheet names in a spreadsheet.",
+    "input_parameters": {
+      "spreadsheet_id": {
+        "type": "string",
+        "required": true,
+        "description": "spreadsheet_id parameter"
+      }
+    },
+    "output_parameters": {
+      "sheet_id": {
+        "type": "string",
+        "required": true,
+        "description": "sheet_id parameter"
+      },
+      "sheet_name": {
+        "type": "string",
+        "required": true,
+        "description": "sheet_name parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_ADD_SHEET",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Add sheet to an existing spreadsheet.",
+    "input_parameters": {
+      "spreadsheet_id": {
+        "type": "string",
+        "required": true,
+        "description": "spreadsheet_id parameter"
+      },
+      "title": {
+        "type": "string",
+        "required": true,
+        "description": "title parameter"
+      }
+    },
+    "output_parameters": {
+      "sheet_id": {
+        "type": "string",
+        "required": true,
+        "description": "sheet_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_CREATE_SPREADSHEET_ROW",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Create spreadsheet row.",
+    "input_parameters": {
+      "spreadsheet_id": {
+        "type": "string",
+        "required": true,
+        "description": "spreadsheet_id parameter"
+      },
+      "sheet_id": {
+        "type": "string",
+        "required": true,
+        "description": "sheet_id parameter"
+      },
+      "values": {
+        "type": "array",
+        "required": true,
+        "description": "values parameter"
+      }
+    },
+    "output_parameters": {
+      "row_id": {
+        "type": "string",
+        "required": true,
+        "description": "row_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_LIST_CALENDARS",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "List Google calendars.",
+    "input_parameters": {},
+    "output_parameters": {
+      "calendar_id": {
+        "type": "string",
+        "required": true,
+        "description": "calendar_id parameter"
+      },
+      "summary": {
+        "type": "string",
+        "required": true,
+        "description": "summary parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_EVENTS_LIST",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "List calendar events.",
+    "input_parameters": {
+      "calendar_id": {
+        "type": "string",
+        "required": true,
+        "description": "calendar_id parameter"
+      }
+    },
+    "output_parameters": {
+      "event_id": {
+        "type": "string",
+        "required": true,
+        "description": "event_id parameter"
+      },
+      "calendar_id": {
+        "type": "string",
+        "required": true,
+        "description": "calendar_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_FIND_EVENT",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Find calendar event.",
+    "input_parameters": {
+      "calendar_id": {
+        "type": "string",
+        "required": true,
+        "description": "calendar_id parameter"
+      },
+      "query": {
+        "type": "string",
+        "required": true,
+        "description": "query parameter"
+      }
+    },
+    "output_parameters": {
+      "event_id": {
+        "type": "string",
+        "required": true,
+        "description": "event_id parameter"
+      },
+      "calendar_id": {
+        "type": "string",
+        "required": true,
+        "description": "calendar_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_CREATE_EVENT",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Create calendar event.",
+    "input_parameters": {
+      "calendar_id": {
+        "type": "string",
+        "required": true,
+        "description": "calendar_id parameter"
+      },
+      "summary": {
+        "type": "string",
+        "required": true,
+        "description": "summary parameter"
+      },
+      "start_time": {
+        "type": "string",
+        "required": true,
+        "description": "start_time parameter"
+      },
+      "end_time": {
+        "type": "string",
+        "required": true,
+        "description": "end_time parameter"
+      }
+    },
+    "output_parameters": {
+      "event_id": {
+        "type": "string",
+        "required": true,
+        "description": "event_id parameter"
+      },
+      "calendar_id": {
+        "type": "string",
+        "required": true,
+        "description": "calendar_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_DELETE_EVENT",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Delete calendar event.",
+    "input_parameters": {
+      "calendar_id": {
+        "type": "string",
+        "required": true,
+        "description": "calendar_id parameter"
+      },
+      "event_id": {
+        "type": "string",
+        "required": true,
+        "description": "event_id parameter"
+      }
+    },
+    "output_parameters": {}
+  },
+  {
+    "slug": "GOOGLESUPER_LIST_ALL_TASKS",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "List Google Tasks.",
+    "input_parameters": {},
+    "output_parameters": {
+      "task_id": {
+        "type": "string",
+        "required": true,
+        "description": "task_id parameter"
+      },
+      "tasklist_id": {
+        "type": "string",
+        "required": true,
+        "description": "tasklist_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_CREATE_TASK_LIST",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Create task list.",
+    "input_parameters": {
+      "title": {
+        "type": "string",
+        "required": true,
+        "description": "title parameter"
+      }
+    },
+    "output_parameters": {
+      "tasklist_id": {
+        "type": "string",
+        "required": true,
+        "description": "tasklist_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GOOGLESUPER_INSERT_TASK",
+    "toolkit": {
+      "slug": "googlesuper"
+    },
+    "description": "Insert task.",
+    "input_parameters": {
+      "tasklist_id": {
+        "type": "string",
+        "required": true,
+        "description": "tasklist_id parameter"
+      },
+      "title": {
+        "type": "string",
+        "required": true,
+        "description": "title parameter"
+      }
+    },
+    "output_parameters": {
+      "task_id": {
+        "type": "string",
+        "required": true,
+        "description": "task_id parameter"
+      },
+      "tasklist_id": {
+        "type": "string",
+        "required": true,
+        "description": "tasklist_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_FIND_REPOSITORIES",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Find GitHub repositories.",
+    "input_parameters": {
+      "query": {
+        "type": "string",
+        "required": true,
+        "description": "query parameter"
+      }
+    },
+    "output_parameters": {
+      "repo_name": {
+        "type": "string",
+        "required": true,
+        "description": "repo_name parameter"
+      },
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_GET_A_REPOSITORY",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Get a repository.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      }
+    },
+    "output_parameters": {
+      "repo_name": {
+        "type": "string",
+        "required": true,
+        "description": "repo_name parameter"
+      },
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "default_branch": {
+        "type": "string",
+        "required": true,
+        "description": "default_branch parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_CREATE_AN_ISSUE",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Create an issue.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "title": {
+        "type": "string",
+        "required": true,
+        "description": "title parameter"
+      },
+      "body": {
+        "type": "string",
+        "required": true,
+        "description": "body parameter"
+      }
+    },
+    "output_parameters": {
+      "issue_number": {
+        "type": "number",
+        "required": true,
+        "description": "issue_number parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_GET_AN_ISSUE",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Get an issue.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "issue_number": {
+        "type": "number",
+        "required": true,
+        "description": "issue_number parameter"
+      }
+    },
+    "output_parameters": {
+      "issue_number": {
+        "type": "number",
+        "required": true,
+        "description": "issue_number parameter"
+      },
+      "assignee": {
+        "type": "string",
+        "required": true,
+        "description": "assignee parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Add assignees to issue.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "issue_number": {
+        "type": "number",
+        "required": true,
+        "description": "issue_number parameter"
+      },
+      "assignees": {
+        "type": "array",
+        "required": true,
+        "description": "assignees parameter"
+      }
+    },
+    "output_parameters": {}
+  },
+  {
+    "slug": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Comment on issue.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "issue_number": {
+        "type": "number",
+        "required": true,
+        "description": "issue_number parameter"
+      },
+      "body": {
+        "type": "string",
+        "required": true,
+        "description": "body parameter"
+      }
+    },
+    "output_parameters": {
+      "comment_id": {
+        "type": "number",
+        "required": true,
+        "description": "comment_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_FIND_PULL_REQUESTS",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Find pull requests.",
+    "input_parameters": {
+      "query": {
+        "type": "string",
+        "required": true,
+        "description": "query parameter"
+      }
+    },
+    "output_parameters": {
+      "pull_number": {
+        "type": "number",
+        "required": true,
+        "description": "pull_number parameter"
+      },
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_CREATE_A_PULL_REQUEST",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Create PR.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "title": {
+        "type": "string",
+        "required": true,
+        "description": "title parameter"
+      },
+      "head": {
+        "type": "string",
+        "required": true,
+        "description": "head parameter"
+      },
+      "base": {
+        "type": "string",
+        "required": true,
+        "description": "base parameter"
+      },
+      "body": {
+        "type": "string",
+        "required": true,
+        "description": "body parameter"
+      }
+    },
+    "output_parameters": {
+      "pull_number": {
+        "type": "number",
+        "required": true,
+        "description": "pull_number parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_GET_A_PULL_REQUEST",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Get PR.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "pull_number": {
+        "type": "number",
+        "required": true,
+        "description": "pull_number parameter"
+      }
+    },
+    "output_parameters": {
+      "pull_number": {
+        "type": "number",
+        "required": true,
+        "description": "pull_number parameter"
+      },
+      "head": {
+        "type": "string",
+        "required": true,
+        "description": "head parameter"
+      },
+      "base": {
+        "type": "string",
+        "required": true,
+        "description": "base parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Review PR.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "pull_number": {
+        "type": "number",
+        "required": true,
+        "description": "pull_number parameter"
+      },
+      "body": {
+        "type": "string",
+        "required": true,
+        "description": "body parameter"
+      }
+    },
+    "output_parameters": {
+      "review_id": {
+        "type": "number",
+        "required": true,
+        "description": "review_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_GET_A_BRANCH",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Get branch.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "branch": {
+        "type": "string",
+        "required": true,
+        "description": "branch parameter"
+      }
+    },
+    "output_parameters": {
+      "branch": {
+        "type": "string",
+        "required": true,
+        "description": "branch parameter"
+      },
+      "sha": {
+        "type": "string",
+        "required": true,
+        "description": "sha parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_GET_A_COMMIT",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Get commit.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "ref": {
+        "type": "string",
+        "required": true,
+        "description": "ref parameter"
+      }
+    },
+    "output_parameters": {
+      "sha": {
+        "type": "string",
+        "required": true,
+        "description": "sha parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Create or update file.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "path": {
+        "type": "string",
+        "required": true,
+        "description": "path parameter"
+      },
+      "content": {
+        "type": "string",
+        "required": true,
+        "description": "content parameter"
+      },
+      "branch": {
+        "type": "string",
+        "required": true,
+        "description": "branch parameter"
+      }
+    },
+    "output_parameters": {
+      "sha": {
+        "type": "string",
+        "required": true,
+        "description": "sha parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_LIST_REPOSITORY_WORKFLOWS",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "List repository workflows.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      }
+    },
+    "output_parameters": {
+      "workflow_id": {
+        "type": "number",
+        "required": true,
+        "description": "workflow_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Trigger workflow.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "workflow_id": {
+        "type": "string",
+        "required": true,
+        "description": "workflow_id parameter"
+      },
+      "ref": {
+        "type": "string",
+        "required": true,
+        "description": "ref parameter"
+      }
+    },
+    "output_parameters": {
+      "run_id": {
+        "type": "number",
+        "required": true,
+        "description": "run_id parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_GET_A_WORKFLOW_RUN",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Get workflow run.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "run_id": {
+        "type": "number",
+        "required": true,
+        "description": "run_id parameter"
+      }
+    },
+    "output_parameters": {
+      "run_id": {
+        "type": "number",
+        "required": true,
+        "description": "run_id parameter"
+      },
+      "status": {
+        "type": "string",
+        "required": true,
+        "description": "status parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Download run logs.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "run_id": {
+        "type": "number",
+        "required": true,
+        "description": "run_id parameter"
+      }
+    },
+    "output_parameters": {
+      "url": {
+        "type": "string",
+        "required": true,
+        "description": "url parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_CREATE_A_RELEASE",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Create release.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "tag_name": {
+        "type": "string",
+        "required": true,
+        "description": "tag_name parameter"
+      },
+      "name": {
+        "type": "string",
+        "required": true,
+        "description": "name parameter"
+      }
+    },
+    "output_parameters": {
+      "release_id": {
+        "type": "number",
+        "required": true,
+        "description": "release_id parameter"
+      },
+      "tag_name": {
+        "type": "string",
+        "required": true,
+        "description": "tag_name parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_GET_A_RELEASE",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Get release.",
+    "input_parameters": {
+      "owner": {
+        "type": "string",
+        "required": true,
+        "description": "owner parameter"
+      },
+      "repo": {
+        "type": "string",
+        "required": true,
+        "description": "repo parameter"
+      },
+      "release_id": {
+        "type": "number",
+        "required": true,
+        "description": "release_id parameter"
+      }
+    },
+    "output_parameters": {
+      "release_id": {
+        "type": "number",
+        "required": true,
+        "description": "release_id parameter"
+      },
+      "tag_name": {
+        "type": "string",
+        "required": true,
+        "description": "tag_name parameter"
+      }
+    }
+  },
+  {
+    "slug": "GITHUB_GET_A_USER",
+    "toolkit": {
+      "slug": "github"
+    },
+    "description": "Get a user.",
+    "input_parameters": {
+      "username": {
+        "type": "string",
+        "required": true,
+        "description": "username parameter"
+      }
+    },
+    "output_parameters": {
+      "username": {
+        "type": "string",
+        "required": true,
+        "description": "username parameter"
+      },
+      "email": {
+        "type": "string",
+        "required": true,
+        "description": "email parameter"
+      }
+    }
+  }
+]

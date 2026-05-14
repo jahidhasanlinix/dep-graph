@@ -1,0 +1,4288 @@
+{
+  "generated_at": "2026-05-14T00:30:43.673Z",
+  "methodology": [
+    "Required inputs become needs.",
+    "Provider edges point from a tool that can discover/create/get a resource to a tool requiring that resource.",
+    "Exact output-parameter matches are highest confidence; resource/action-name matches and hand-authored aliases fill gaps for IDs, contacts, GitHub repositories, issues, PRs, runs, and Google Workspace resources.",
+    "Literal content inputs are marked as user/task inputs rather than tool dependencies."
+  ],
+  "nodes": [
+    {
+      "id": "GOOGLESUPER_FETCH_EMAILS",
+      "label": "FETCH_EMAILS",
+      "toolkit": "googlesuper",
+      "name": "Fetch emails from Gmail; list messages and threads.",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "message_id parameter",
+          "name": "message_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "thread_id parameter",
+          "name": "thread_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "from_email parameter",
+          "name": "from_email"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "subject parameter",
+          "name": "subject"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID",
+      "label": "FETCH_MESSAGE_BY_MESSAGE_ID",
+      "toolkit": "googlesuper",
+      "name": "Fetch a Gmail message by ID.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "message_id parameter",
+          "name": "message_id"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "message_id parameter",
+          "name": "message_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "thread_id parameter",
+          "name": "thread_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "attachment_id parameter",
+          "name": "attachment_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_FETCH_MESSAGE_BY_THREAD_ID",
+      "label": "FETCH_MESSAGE_BY_THREAD_ID",
+      "toolkit": "googlesuper",
+      "name": "Fetch Gmail messages in a thread.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "thread_id parameter",
+          "name": "thread_id"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "message_id parameter",
+          "name": "message_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "thread_id parameter",
+          "name": "thread_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_CREATE_REPLY",
+      "label": "CREATE_REPLY",
+      "toolkit": "googlesuper",
+      "name": "Reply to an existing Gmail thread.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "thread_id parameter",
+          "name": "thread_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "body parameter",
+          "name": "body"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "message_id parameter",
+          "name": "message_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "thread_id parameter",
+          "name": "thread_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_FORWARD_MESSAGE",
+      "label": "FORWARD_MESSAGE",
+      "toolkit": "googlesuper",
+      "name": "Forward an email message.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "message_id parameter",
+          "name": "message_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "to parameter",
+          "name": "to"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "body parameter",
+          "name": "body"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "message_id parameter",
+          "name": "message_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_CREATE_EMAIL_DRAFT",
+      "label": "CREATE_EMAIL_DRAFT",
+      "toolkit": "googlesuper",
+      "name": "Create a Gmail draft.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "to parameter",
+          "name": "to"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "subject parameter",
+          "name": "subject"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "body parameter",
+          "name": "body"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "draft_id parameter",
+          "name": "draft_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "message_id parameter",
+          "name": "message_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_SEND_EMAIL",
+      "label": "SEND_EMAIL",
+      "toolkit": "googlesuper",
+      "name": "Send email to recipients.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "to parameter",
+          "name": "to"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "subject parameter",
+          "name": "subject"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "body parameter",
+          "name": "body"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "message_id parameter",
+          "name": "message_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "thread_id parameter",
+          "name": "thread_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_GET_CONTACTS",
+      "label": "GET_CONTACTS",
+      "toolkit": "googlesuper",
+      "name": "Get Google contacts for resolving people to email addresses.",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "email parameter",
+          "name": "email"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "name parameter",
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_GET_PEOPLE",
+      "label": "GET_PEOPLE",
+      "toolkit": "googlesuper",
+      "name": "Search Google People profile/contact data.",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "email parameter",
+          "name": "email"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "name parameter",
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_FIND_FILE",
+      "label": "FIND_FILE",
+      "toolkit": "googlesuper",
+      "name": "Find a Google Drive file.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "query parameter",
+          "name": "query"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "file_id parameter",
+          "name": "file_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "name parameter",
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_FIND_FOLDER",
+      "label": "FIND_FOLDER",
+      "toolkit": "googlesuper",
+      "name": "Find a Google Drive folder.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "query parameter",
+          "name": "query"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "folder_id parameter",
+          "name": "folder_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "file_id parameter",
+          "name": "file_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_CREATE_FILE",
+      "label": "CREATE_FILE",
+      "toolkit": "googlesuper",
+      "name": "Create a Drive file or folder.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "name parameter",
+          "name": "name"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "folder_id parameter",
+          "name": "folder_id"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "file_id parameter",
+          "name": "file_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_GET_FILE_METADATA",
+      "label": "GET_FILE_METADATA",
+      "toolkit": "googlesuper",
+      "name": "Get Drive file metadata.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "file_id parameter",
+          "name": "file_id"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "file_id parameter",
+          "name": "file_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "name parameter",
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_DOWNLOAD_FILE",
+      "label": "DOWNLOAD_FILE",
+      "toolkit": "googlesuper",
+      "name": "Download a file from Drive.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "file_id parameter",
+          "name": "file_id"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "content parameter",
+          "name": "content"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_GET_DOCUMENT_BY_ID",
+      "label": "GET_DOCUMENT_BY_ID",
+      "toolkit": "googlesuper",
+      "name": "Get a Google Doc by ID.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "document_id parameter",
+          "name": "document_id"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "document_id parameter",
+          "name": "document_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_CREATE_DOCUMENT",
+      "label": "CREATE_DOCUMENT",
+      "toolkit": "googlesuper",
+      "name": "Create a Google document.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "title parameter",
+          "name": "title"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "document_id parameter",
+          "name": "document_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "file_id parameter",
+          "name": "file_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_INSERT_TEXT_ACTION",
+      "label": "INSERT_TEXT_ACTION",
+      "toolkit": "googlesuper",
+      "name": "Insert text into a Google Doc.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "document_id parameter",
+          "name": "document_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "text parameter",
+          "name": "text"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "document_id parameter",
+          "name": "document_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_CREATE_GOOGLE_SHEET1",
+      "label": "CREATE_GOOGLE_SHEET1",
+      "toolkit": "googlesuper",
+      "name": "Create a Google Sheet.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "title parameter",
+          "name": "title"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "spreadsheet_id parameter",
+          "name": "spreadsheet_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "file_id parameter",
+          "name": "file_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_GET_SPREADSHEET_INFO",
+      "label": "GET_SPREADSHEET_INFO",
+      "toolkit": "googlesuper",
+      "name": "Get spreadsheet info.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "spreadsheet_id parameter",
+          "name": "spreadsheet_id"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "spreadsheet_id parameter",
+          "name": "spreadsheet_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "sheet_id parameter",
+          "name": "sheet_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "sheet_name parameter",
+          "name": "sheet_name"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_GET_SHEET_NAMES",
+      "label": "GET_SHEET_NAMES",
+      "toolkit": "googlesuper",
+      "name": "List sheet names in a spreadsheet.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "spreadsheet_id parameter",
+          "name": "spreadsheet_id"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "sheet_id parameter",
+          "name": "sheet_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "sheet_name parameter",
+          "name": "sheet_name"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_ADD_SHEET",
+      "label": "ADD_SHEET",
+      "toolkit": "googlesuper",
+      "name": "Add sheet to an existing spreadsheet.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "spreadsheet_id parameter",
+          "name": "spreadsheet_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "title parameter",
+          "name": "title"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "sheet_id parameter",
+          "name": "sheet_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_CREATE_SPREADSHEET_ROW",
+      "label": "CREATE_SPREADSHEET_ROW",
+      "toolkit": "googlesuper",
+      "name": "Create spreadsheet row.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "spreadsheet_id parameter",
+          "name": "spreadsheet_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "sheet_id parameter",
+          "name": "sheet_id"
+        },
+        {
+          "type": "array",
+          "required": true,
+          "description": "values parameter",
+          "name": "values"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "row_id parameter",
+          "name": "row_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_LIST_CALENDARS",
+      "label": "LIST_CALENDARS",
+      "toolkit": "googlesuper",
+      "name": "List Google calendars.",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "calendar_id parameter",
+          "name": "calendar_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "summary parameter",
+          "name": "summary"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_EVENTS_LIST",
+      "label": "EVENTS_LIST",
+      "toolkit": "googlesuper",
+      "name": "List calendar events.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "calendar_id parameter",
+          "name": "calendar_id"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "event_id parameter",
+          "name": "event_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "calendar_id parameter",
+          "name": "calendar_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_FIND_EVENT",
+      "label": "FIND_EVENT",
+      "toolkit": "googlesuper",
+      "name": "Find calendar event.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "calendar_id parameter",
+          "name": "calendar_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "query parameter",
+          "name": "query"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "event_id parameter",
+          "name": "event_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "calendar_id parameter",
+          "name": "calendar_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_CREATE_EVENT",
+      "label": "CREATE_EVENT",
+      "toolkit": "googlesuper",
+      "name": "Create calendar event.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "calendar_id parameter",
+          "name": "calendar_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "summary parameter",
+          "name": "summary"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "start_time parameter",
+          "name": "start_time"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "end_time parameter",
+          "name": "end_time"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "event_id parameter",
+          "name": "event_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "calendar_id parameter",
+          "name": "calendar_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_DELETE_EVENT",
+      "label": "DELETE_EVENT",
+      "toolkit": "googlesuper",
+      "name": "Delete calendar event.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "calendar_id parameter",
+          "name": "calendar_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "event_id parameter",
+          "name": "event_id"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "GOOGLESUPER_LIST_ALL_TASKS",
+      "label": "LIST_ALL_TASKS",
+      "toolkit": "googlesuper",
+      "name": "List Google Tasks.",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "task_id parameter",
+          "name": "task_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "tasklist_id parameter",
+          "name": "tasklist_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_CREATE_TASK_LIST",
+      "label": "CREATE_TASK_LIST",
+      "toolkit": "googlesuper",
+      "name": "Create task list.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "title parameter",
+          "name": "title"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "tasklist_id parameter",
+          "name": "tasklist_id"
+        }
+      ]
+    },
+    {
+      "id": "GOOGLESUPER_INSERT_TASK",
+      "label": "INSERT_TASK",
+      "toolkit": "googlesuper",
+      "name": "Insert task.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "tasklist_id parameter",
+          "name": "tasklist_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "title parameter",
+          "name": "title"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "task_id parameter",
+          "name": "task_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "tasklist_id parameter",
+          "name": "tasklist_id"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_FIND_REPOSITORIES",
+      "label": "FIND_REPOSITORIES",
+      "toolkit": "github",
+      "name": "Find GitHub repositories.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "query parameter",
+          "name": "query"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo_name parameter",
+          "name": "repo_name"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_GET_A_REPOSITORY",
+      "label": "GET_A_REPOSITORY",
+      "toolkit": "github",
+      "name": "Get a repository.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo_name parameter",
+          "name": "repo_name"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "default_branch parameter",
+          "name": "default_branch"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_CREATE_AN_ISSUE",
+      "label": "CREATE_AN_ISSUE",
+      "toolkit": "github",
+      "name": "Create an issue.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "title parameter",
+          "name": "title"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "body parameter",
+          "name": "body"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "number",
+          "required": true,
+          "description": "issue_number parameter",
+          "name": "issue_number"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_GET_AN_ISSUE",
+      "label": "GET_AN_ISSUE",
+      "toolkit": "github",
+      "name": "Get an issue.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "number",
+          "required": true,
+          "description": "issue_number parameter",
+          "name": "issue_number"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "number",
+          "required": true,
+          "description": "issue_number parameter",
+          "name": "issue_number"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "assignee parameter",
+          "name": "assignee"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+      "label": "ADD_ASSIGNEES_TO_AN_ISSUE",
+      "toolkit": "github",
+      "name": "Add assignees to issue.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "number",
+          "required": true,
+          "description": "issue_number parameter",
+          "name": "issue_number"
+        },
+        {
+          "type": "array",
+          "required": true,
+          "description": "assignees parameter",
+          "name": "assignees"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+      "label": "CREATE_AN_ISSUE_COMMENT",
+      "toolkit": "github",
+      "name": "Comment on issue.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "number",
+          "required": true,
+          "description": "issue_number parameter",
+          "name": "issue_number"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "body parameter",
+          "name": "body"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "number",
+          "required": true,
+          "description": "comment_id parameter",
+          "name": "comment_id"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_FIND_PULL_REQUESTS",
+      "label": "FIND_PULL_REQUESTS",
+      "toolkit": "github",
+      "name": "Find pull requests.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "query parameter",
+          "name": "query"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "number",
+          "required": true,
+          "description": "pull_number parameter",
+          "name": "pull_number"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_CREATE_A_PULL_REQUEST",
+      "label": "CREATE_A_PULL_REQUEST",
+      "toolkit": "github",
+      "name": "Create PR.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "title parameter",
+          "name": "title"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "head parameter",
+          "name": "head"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "base parameter",
+          "name": "base"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "body parameter",
+          "name": "body"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "number",
+          "required": true,
+          "description": "pull_number parameter",
+          "name": "pull_number"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_GET_A_PULL_REQUEST",
+      "label": "GET_A_PULL_REQUEST",
+      "toolkit": "github",
+      "name": "Get PR.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "number",
+          "required": true,
+          "description": "pull_number parameter",
+          "name": "pull_number"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "number",
+          "required": true,
+          "description": "pull_number parameter",
+          "name": "pull_number"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "head parameter",
+          "name": "head"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "base parameter",
+          "name": "base"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+      "label": "CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+      "toolkit": "github",
+      "name": "Review PR.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "number",
+          "required": true,
+          "description": "pull_number parameter",
+          "name": "pull_number"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "body parameter",
+          "name": "body"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "number",
+          "required": true,
+          "description": "review_id parameter",
+          "name": "review_id"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_GET_A_BRANCH",
+      "label": "GET_A_BRANCH",
+      "toolkit": "github",
+      "name": "Get branch.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "branch parameter",
+          "name": "branch"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "branch parameter",
+          "name": "branch"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "sha parameter",
+          "name": "sha"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_GET_A_COMMIT",
+      "label": "GET_A_COMMIT",
+      "toolkit": "github",
+      "name": "Get commit.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "ref parameter",
+          "name": "ref"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "sha parameter",
+          "name": "sha"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+      "label": "CREATE_OR_UPDATE_FILE_CONTENTS",
+      "toolkit": "github",
+      "name": "Create or update file.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "path parameter",
+          "name": "path"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "content parameter",
+          "name": "content"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "branch parameter",
+          "name": "branch"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "sha parameter",
+          "name": "sha"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_LIST_REPOSITORY_WORKFLOWS",
+      "label": "LIST_REPOSITORY_WORKFLOWS",
+      "toolkit": "github",
+      "name": "List repository workflows.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "number",
+          "required": true,
+          "description": "workflow_id parameter",
+          "name": "workflow_id"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "label": "CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "toolkit": "github",
+      "name": "Trigger workflow.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "workflow_id parameter",
+          "name": "workflow_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "ref parameter",
+          "name": "ref"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "number",
+          "required": true,
+          "description": "run_id parameter",
+          "name": "run_id"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_GET_A_WORKFLOW_RUN",
+      "label": "GET_A_WORKFLOW_RUN",
+      "toolkit": "github",
+      "name": "Get workflow run.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "number",
+          "required": true,
+          "description": "run_id parameter",
+          "name": "run_id"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "number",
+          "required": true,
+          "description": "run_id parameter",
+          "name": "run_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "status parameter",
+          "name": "status"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS",
+      "label": "DOWNLOAD_WORKFLOW_RUN_LOGS",
+      "toolkit": "github",
+      "name": "Download run logs.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "number",
+          "required": true,
+          "description": "run_id parameter",
+          "name": "run_id"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "url parameter",
+          "name": "url"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_CREATE_A_RELEASE",
+      "label": "CREATE_A_RELEASE",
+      "toolkit": "github",
+      "name": "Create release.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "tag_name parameter",
+          "name": "tag_name"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "name parameter",
+          "name": "name"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "number",
+          "required": true,
+          "description": "release_id parameter",
+          "name": "release_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "tag_name parameter",
+          "name": "tag_name"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_GET_A_RELEASE",
+      "label": "GET_A_RELEASE",
+      "toolkit": "github",
+      "name": "Get release.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "owner parameter",
+          "name": "owner"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "repo parameter",
+          "name": "repo"
+        },
+        {
+          "type": "number",
+          "required": true,
+          "description": "release_id parameter",
+          "name": "release_id"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "number",
+          "required": true,
+          "description": "release_id parameter",
+          "name": "release_id"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "tag_name parameter",
+          "name": "tag_name"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_GET_A_USER",
+      "label": "GET_A_USER",
+      "toolkit": "github",
+      "name": "Get a user.",
+      "inputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "username parameter",
+          "name": "username"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "username parameter",
+          "name": "username"
+        },
+        {
+          "type": "string",
+          "required": true,
+          "description": "email parameter",
+          "name": "email"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "GITHUB_CREATE_A_PULL_REQUEST",
+      "to": "GITHUB_GET_A_PULL_REQUEST",
+      "input": "pull_number",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs pull_number; outputs pull_number; mentions pull request"
+    },
+    {
+      "from": "GITHUB_CREATE_A_PULL_REQUEST",
+      "to": "GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+      "input": "pull_number",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs pull_number; outputs pull_number; mentions pull request"
+    },
+    {
+      "from": "GITHUB_CREATE_A_RELEASE",
+      "to": "GITHUB_GET_A_RELEASE",
+      "input": "release_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs release_id; outputs release_id; mentions release"
+    },
+    {
+      "from": "GITHUB_CREATE_AN_ISSUE",
+      "to": "GITHUB_GET_AN_ISSUE",
+      "input": "issue_number",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs issue_number; outputs issue_number; mentions issue; known resolver pattern"
+    },
+    {
+      "from": "GITHUB_CREATE_AN_ISSUE",
+      "to": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+      "input": "issue_number",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs issue_number; outputs issue_number; mentions issue; known resolver pattern"
+    },
+    {
+      "from": "GITHUB_CREATE_AN_ISSUE",
+      "to": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+      "input": "issue_number",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs issue_number; outputs issue_number; mentions issue; known resolver pattern"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_GET_A_REPOSITORY",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_GET_A_REPOSITORY",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_CREATE_AN_ISSUE",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_CREATE_AN_ISSUE",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_GET_AN_ISSUE",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_GET_AN_ISSUE",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_CREATE_A_PULL_REQUEST",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_CREATE_A_PULL_REQUEST",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_GET_A_PULL_REQUEST",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_GET_A_PULL_REQUEST",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_GET_A_PULL_REQUEST",
+      "input": "pull_number",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs pull_number; outputs pull_number; mentions pull request; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+      "input": "pull_number",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs pull_number; outputs pull_number; mentions pull request; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_GET_A_BRANCH",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_GET_A_BRANCH",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_GET_A_COMMIT",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_GET_A_COMMIT",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_LIST_REPOSITORY_WORKFLOWS",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_LIST_REPOSITORY_WORKFLOWS",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_GET_A_WORKFLOW_RUN",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_GET_A_WORKFLOW_RUN",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_CREATE_A_RELEASE",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_CREATE_A_RELEASE",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_GET_A_RELEASE",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_PULL_REQUESTS",
+      "to": "GITHUB_GET_A_RELEASE",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_GET_A_REPOSITORY",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_GET_A_REPOSITORY",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_CREATE_AN_ISSUE",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_CREATE_AN_ISSUE",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_GET_AN_ISSUE",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_GET_AN_ISSUE",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_CREATE_A_PULL_REQUEST",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_CREATE_A_PULL_REQUEST",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_GET_A_PULL_REQUEST",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_GET_A_PULL_REQUEST",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_GET_A_BRANCH",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_GET_A_BRANCH",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_GET_A_COMMIT",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_GET_A_COMMIT",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_LIST_REPOSITORY_WORKFLOWS",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_LIST_REPOSITORY_WORKFLOWS",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_GET_A_WORKFLOW_RUN",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_GET_A_WORKFLOW_RUN",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_CREATE_A_RELEASE",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_CREATE_A_RELEASE",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_GET_A_RELEASE",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_FIND_REPOSITORIES",
+      "to": "GITHUB_GET_A_RELEASE",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repo; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_BRANCH",
+      "to": "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+      "input": "branch",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs branch; outputs branch; mentions branch; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_PULL_REQUEST",
+      "to": "GITHUB_CREATE_A_PULL_REQUEST",
+      "input": "head",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs head; outputs head; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_PULL_REQUEST",
+      "to": "GITHUB_CREATE_A_PULL_REQUEST",
+      "input": "base",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs base; outputs base; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_PULL_REQUEST",
+      "to": "GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+      "input": "pull_number",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs pull_number; outputs pull_number; mentions pull request; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GITHUB_GET_A_RELEASE",
+      "to": "GITHUB_CREATE_A_RELEASE",
+      "input": "tag_name",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs tag_name; outputs tag; mentions release; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_CREATE_AN_ISSUE",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_CREATE_AN_ISSUE",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_GET_AN_ISSUE",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_GET_AN_ISSUE",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_CREATE_A_PULL_REQUEST",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_CREATE_A_PULL_REQUEST",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_GET_A_PULL_REQUEST",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_GET_A_PULL_REQUEST",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_GET_A_BRANCH",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_GET_A_BRANCH",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_GET_A_BRANCH",
+      "input": "branch",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs branch; outputs branch; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_GET_A_COMMIT",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_GET_A_COMMIT",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+      "input": "branch",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs branch; outputs branch; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_LIST_REPOSITORY_WORKFLOWS",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_LIST_REPOSITORY_WORKFLOWS",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_GET_A_WORKFLOW_RUN",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_GET_A_WORKFLOW_RUN",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_CREATE_A_RELEASE",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_CREATE_A_RELEASE",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_GET_A_RELEASE",
+      "input": "owner",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs owner; outputs owner; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_REPOSITORY",
+      "to": "GITHUB_GET_A_RELEASE",
+      "input": "repo",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs repo; outputs repo; mentions repository; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_A_WORKFLOW_RUN",
+      "to": "GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS",
+      "input": "run_id",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs run_id; outputs run_id; mentions workflow run; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GITHUB_GET_AN_ISSUE",
+      "to": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+      "input": "issue_number",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs issue_number; outputs issue_number; mentions issue; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GITHUB_GET_AN_ISSUE",
+      "to": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+      "input": "assignees",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs assignees; outputs assignee; discovery/get/list action"
+    },
+    {
+      "from": "GITHUB_GET_AN_ISSUE",
+      "to": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+      "input": "issue_number",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs issue_number; outputs issue_number; mentions issue; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GITHUB_LIST_REPOSITORY_WORKFLOWS",
+      "to": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "input": "workflow_id",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs workflow_id; outputs workflow_id; mentions workflow; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_ADD_SHEET",
+      "to": "GOOGLESUPER_CREATE_SPREADSHEET_ROW",
+      "input": "sheet_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs sheet_id; outputs sheet_id; mentions sheet"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_DOCUMENT",
+      "to": "GOOGLESUPER_GET_FILE_METADATA",
+      "input": "file_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs file_id; outputs file_id; mentions document"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_DOCUMENT",
+      "to": "GOOGLESUPER_DOWNLOAD_FILE",
+      "input": "file_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs file_id; outputs file_id; mentions document"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_DOCUMENT",
+      "to": "GOOGLESUPER_GET_DOCUMENT_BY_ID",
+      "input": "document_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs document_id; outputs document_id; mentions document"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_DOCUMENT",
+      "to": "GOOGLESUPER_INSERT_TEXT_ACTION",
+      "input": "document_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs document_id; outputs document_id; mentions document"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_EMAIL_DRAFT",
+      "to": "GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID",
+      "input": "message_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs message_id; outputs message_id; mentions email; can create the needed resource"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_EMAIL_DRAFT",
+      "to": "GOOGLESUPER_FORWARD_MESSAGE",
+      "input": "message_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs message_id; outputs message_id; mentions email"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_EVENT",
+      "to": "GOOGLESUPER_EVENTS_LIST",
+      "input": "calendar_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs calendar_id; outputs calendar_id; mentions calendar"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_EVENT",
+      "to": "GOOGLESUPER_FIND_EVENT",
+      "input": "calendar_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs calendar_id; outputs calendar_id; mentions calendar"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_EVENT",
+      "to": "GOOGLESUPER_DELETE_EVENT",
+      "input": "calendar_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs calendar_id; outputs calendar_id; mentions calendar"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_EVENT",
+      "to": "GOOGLESUPER_DELETE_EVENT",
+      "input": "event_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs event_id; outputs event_id; mentions event"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_FILE",
+      "to": "GOOGLESUPER_GET_FILE_METADATA",
+      "input": "file_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs file_id; outputs file_id; mentions file"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_FILE",
+      "to": "GOOGLESUPER_DOWNLOAD_FILE",
+      "input": "file_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs file_id; outputs file_id; mentions file"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_GOOGLE_SHEET1",
+      "to": "GOOGLESUPER_GET_FILE_METADATA",
+      "input": "file_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs file_id; outputs file_id; mentions sheet"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_GOOGLE_SHEET1",
+      "to": "GOOGLESUPER_DOWNLOAD_FILE",
+      "input": "file_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs file_id; outputs file_id; mentions sheet"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_GOOGLE_SHEET1",
+      "to": "GOOGLESUPER_GET_SPREADSHEET_INFO",
+      "input": "spreadsheet_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs spreadsheet_id; outputs spreadsheet_id; mentions sheet"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_GOOGLE_SHEET1",
+      "to": "GOOGLESUPER_GET_SHEET_NAMES",
+      "input": "spreadsheet_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs spreadsheet_id; outputs spreadsheet_id; mentions sheet"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_GOOGLE_SHEET1",
+      "to": "GOOGLESUPER_ADD_SHEET",
+      "input": "spreadsheet_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs spreadsheet_id; outputs spreadsheet_id; mentions sheet"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_GOOGLE_SHEET1",
+      "to": "GOOGLESUPER_CREATE_SPREADSHEET_ROW",
+      "input": "spreadsheet_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs spreadsheet_id; outputs spreadsheet_id; mentions sheet"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_REPLY",
+      "to": "GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID",
+      "input": "message_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs message_id; outputs message_id; mentions thread; can create the needed resource"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_REPLY",
+      "to": "GOOGLESUPER_FETCH_MESSAGE_BY_THREAD_ID",
+      "input": "thread_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs thread_id; outputs thread_id; mentions thread; can create the needed resource"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_REPLY",
+      "to": "GOOGLESUPER_FORWARD_MESSAGE",
+      "input": "message_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs message_id; outputs message_id; mentions thread"
+    },
+    {
+      "from": "GOOGLESUPER_CREATE_TASK_LIST",
+      "to": "GOOGLESUPER_INSERT_TASK",
+      "input": "tasklist_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs tasklist_id; outputs tasklist_id; mentions task list"
+    },
+    {
+      "from": "GOOGLESUPER_EVENTS_LIST",
+      "to": "GOOGLESUPER_FIND_EVENT",
+      "input": "calendar_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs calendar_id; outputs calendar_id; mentions calendar"
+    },
+    {
+      "from": "GOOGLESUPER_EVENTS_LIST",
+      "to": "GOOGLESUPER_CREATE_EVENT",
+      "input": "calendar_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs calendar_id; outputs calendar_id; mentions calendar"
+    },
+    {
+      "from": "GOOGLESUPER_EVENTS_LIST",
+      "to": "GOOGLESUPER_DELETE_EVENT",
+      "input": "calendar_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs calendar_id; outputs calendar_id; mentions calendar"
+    },
+    {
+      "from": "GOOGLESUPER_EVENTS_LIST",
+      "to": "GOOGLESUPER_DELETE_EVENT",
+      "input": "event_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs event_id; outputs event_id; mentions event"
+    },
+    {
+      "from": "GOOGLESUPER_FETCH_EMAILS",
+      "to": "GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID",
+      "input": "message_id",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs message_id; outputs message_id; mentions message; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_FETCH_EMAILS",
+      "to": "GOOGLESUPER_FETCH_MESSAGE_BY_THREAD_ID",
+      "input": "thread_id",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs thread_id; outputs thread_id; mentions thread; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_FETCH_EMAILS",
+      "to": "GOOGLESUPER_CREATE_REPLY",
+      "input": "thread_id",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs thread_id; outputs thread_id; mentions thread; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_FETCH_EMAILS",
+      "to": "GOOGLESUPER_FORWARD_MESSAGE",
+      "input": "message_id",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs message_id; outputs message_id; mentions message; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID",
+      "to": "GOOGLESUPER_FETCH_MESSAGE_BY_THREAD_ID",
+      "input": "thread_id",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs thread_id; outputs thread_id; mentions message; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID",
+      "to": "GOOGLESUPER_CREATE_REPLY",
+      "input": "thread_id",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs thread_id; outputs thread_id; mentions message; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID",
+      "to": "GOOGLESUPER_FORWARD_MESSAGE",
+      "input": "message_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs message_id; outputs message_id; mentions message; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_FETCH_MESSAGE_BY_THREAD_ID",
+      "to": "GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID",
+      "input": "message_id",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs message_id; outputs message_id; mentions message; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_FETCH_MESSAGE_BY_THREAD_ID",
+      "to": "GOOGLESUPER_CREATE_REPLY",
+      "input": "thread_id",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs thread_id; outputs thread_id; mentions thread; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_FETCH_MESSAGE_BY_THREAD_ID",
+      "to": "GOOGLESUPER_FORWARD_MESSAGE",
+      "input": "message_id",
+      "kind": "resolver",
+      "confidence": 100,
+      "rationale": "outputs message_id; outputs message_id; mentions message; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_FIND_EVENT",
+      "to": "GOOGLESUPER_EVENTS_LIST",
+      "input": "calendar_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs calendar_id; outputs calendar_id; mentions calendar; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_FIND_EVENT",
+      "to": "GOOGLESUPER_CREATE_EVENT",
+      "input": "calendar_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs calendar_id; outputs calendar_id; mentions calendar; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_FIND_EVENT",
+      "to": "GOOGLESUPER_DELETE_EVENT",
+      "input": "calendar_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs calendar_id; outputs calendar_id; mentions calendar; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_FIND_EVENT",
+      "to": "GOOGLESUPER_DELETE_EVENT",
+      "input": "event_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs event_id; outputs event_id; mentions event; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_FIND_FILE",
+      "to": "GOOGLESUPER_CREATE_FILE",
+      "input": "name",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs name; outputs name; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_FIND_FILE",
+      "to": "GOOGLESUPER_GET_FILE_METADATA",
+      "input": "file_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs file_id; outputs file_id; mentions file; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_FIND_FILE",
+      "to": "GOOGLESUPER_DOWNLOAD_FILE",
+      "input": "file_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs file_id; outputs file_id; mentions file; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_FIND_FOLDER",
+      "to": "GOOGLESUPER_CREATE_FILE",
+      "input": "folder_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs folder_id; outputs folder_id; mentions folder; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_FIND_FOLDER",
+      "to": "GOOGLESUPER_GET_FILE_METADATA",
+      "input": "file_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs file_id; outputs file_id; mentions drive; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_FIND_FOLDER",
+      "to": "GOOGLESUPER_DOWNLOAD_FILE",
+      "input": "file_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs file_id; outputs file_id; mentions drive; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_FORWARD_MESSAGE",
+      "to": "GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID",
+      "input": "message_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs message_id; outputs message_id; mentions message"
+    },
+    {
+      "from": "GOOGLESUPER_GET_CONTACTS",
+      "to": "GOOGLESUPER_CREATE_FILE",
+      "input": "name",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs name; outputs name; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_GET_DOCUMENT_BY_ID",
+      "to": "GOOGLESUPER_INSERT_TEXT_ACTION",
+      "input": "document_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs document_id; outputs document_id; mentions document; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_GET_FILE_METADATA",
+      "to": "GOOGLESUPER_CREATE_FILE",
+      "input": "name",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs name; outputs name; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_GET_FILE_METADATA",
+      "to": "GOOGLESUPER_DOWNLOAD_FILE",
+      "input": "file_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs file_id; outputs file_id; mentions file; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_GET_PEOPLE",
+      "to": "GOOGLESUPER_CREATE_FILE",
+      "input": "name",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs name; outputs name; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_GET_SHEET_NAMES",
+      "to": "GOOGLESUPER_CREATE_SPREADSHEET_ROW",
+      "input": "sheet_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs sheet_id; outputs sheet_id; mentions sheet; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_GET_SPREADSHEET_INFO",
+      "to": "GOOGLESUPER_GET_SHEET_NAMES",
+      "input": "spreadsheet_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs spreadsheet_id; outputs spreadsheet_id; mentions spreadsheet; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_GET_SPREADSHEET_INFO",
+      "to": "GOOGLESUPER_ADD_SHEET",
+      "input": "spreadsheet_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs spreadsheet_id; outputs spreadsheet_id; mentions spreadsheet; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_GET_SPREADSHEET_INFO",
+      "to": "GOOGLESUPER_CREATE_SPREADSHEET_ROW",
+      "input": "spreadsheet_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs spreadsheet_id; outputs spreadsheet_id; mentions spreadsheet; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_GET_SPREADSHEET_INFO",
+      "to": "GOOGLESUPER_CREATE_SPREADSHEET_ROW",
+      "input": "sheet_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs sheet_id; outputs sheet_id; mentions sheet; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_INSERT_TEXT_ACTION",
+      "to": "GOOGLESUPER_GET_DOCUMENT_BY_ID",
+      "input": "document_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs document_id; outputs document_id; mentions doc"
+    },
+    {
+      "from": "GOOGLESUPER_LIST_ALL_TASKS",
+      "to": "GOOGLESUPER_INSERT_TASK",
+      "input": "tasklist_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs tasklist_id; outputs tasklist_id; mentions task; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_LIST_CALENDARS",
+      "to": "GOOGLESUPER_EVENTS_LIST",
+      "input": "calendar_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs calendar_id; outputs calendar_id; mentions calendar; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_LIST_CALENDARS",
+      "to": "GOOGLESUPER_FIND_EVENT",
+      "input": "calendar_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs calendar_id; outputs calendar_id; mentions calendar; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_LIST_CALENDARS",
+      "to": "GOOGLESUPER_CREATE_EVENT",
+      "input": "calendar_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs calendar_id; outputs calendar_id; mentions calendar; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_LIST_CALENDARS",
+      "to": "GOOGLESUPER_CREATE_EVENT",
+      "input": "summary",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs summary; outputs summary; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_LIST_CALENDARS",
+      "to": "GOOGLESUPER_DELETE_EVENT",
+      "input": "calendar_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs calendar_id; outputs calendar_id; mentions calendar; discovery/get/list action"
+    },
+    {
+      "from": "GOOGLESUPER_SEND_EMAIL",
+      "to": "GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID",
+      "input": "message_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs message_id; outputs message_id; mentions email"
+    },
+    {
+      "from": "GOOGLESUPER_SEND_EMAIL",
+      "to": "GOOGLESUPER_FETCH_MESSAGE_BY_THREAD_ID",
+      "input": "thread_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs thread_id; outputs thread_id; mentions email"
+    },
+    {
+      "from": "GOOGLESUPER_SEND_EMAIL",
+      "to": "GOOGLESUPER_CREATE_REPLY",
+      "input": "thread_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs thread_id; outputs thread_id; mentions email"
+    },
+    {
+      "from": "GOOGLESUPER_SEND_EMAIL",
+      "to": "GOOGLESUPER_FORWARD_MESSAGE",
+      "input": "message_id",
+      "kind": "exact_output",
+      "confidence": 100,
+      "rationale": "outputs message_id; outputs message_id; mentions email"
+    },
+    {
+      "from": "GITHUB_GET_A_WORKFLOW_RUN",
+      "to": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "input": "workflow_id",
+      "kind": "resolver",
+      "confidence": 75,
+      "rationale": "mentions workflow; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_GET_CONTACTS",
+      "to": "GOOGLESUPER_FORWARD_MESSAGE",
+      "input": "to",
+      "kind": "resolver",
+      "confidence": 75,
+      "rationale": "mentions email; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_GET_CONTACTS",
+      "to": "GOOGLESUPER_CREATE_EMAIL_DRAFT",
+      "input": "to",
+      "kind": "resolver",
+      "confidence": 75,
+      "rationale": "mentions email; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_GET_CONTACTS",
+      "to": "GOOGLESUPER_SEND_EMAIL",
+      "input": "to",
+      "kind": "resolver",
+      "confidence": 75,
+      "rationale": "mentions email; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_GET_PEOPLE",
+      "to": "GOOGLESUPER_FORWARD_MESSAGE",
+      "input": "to",
+      "kind": "resolver",
+      "confidence": 75,
+      "rationale": "mentions contact; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_GET_PEOPLE",
+      "to": "GOOGLESUPER_CREATE_EMAIL_DRAFT",
+      "input": "to",
+      "kind": "resolver",
+      "confidence": 75,
+      "rationale": "mentions contact; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GOOGLESUPER_GET_PEOPLE",
+      "to": "GOOGLESUPER_SEND_EMAIL",
+      "input": "to",
+      "kind": "resolver",
+      "confidence": 75,
+      "rationale": "mentions contact; discovery/get/list action; known resolver pattern"
+    },
+    {
+      "from": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "to": "GITHUB_GET_A_WORKFLOW_RUN",
+      "input": "run_id",
+      "kind": "exact_output",
+      "confidence": 70,
+      "rationale": "outputs run_id; outputs run_id"
+    },
+    {
+      "from": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "to": "GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS",
+      "input": "run_id",
+      "kind": "exact_output",
+      "confidence": 70,
+      "rationale": "outputs run_id; outputs run_id"
+    },
+    {
+      "from": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+      "to": "GITHUB_GET_AN_ISSUE",
+      "input": "issue_number",
+      "kind": "resolver",
+      "confidence": 53,
+      "rationale": "mentions issue; known resolver pattern"
+    },
+    {
+      "from": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+      "to": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+      "input": "issue_number",
+      "kind": "resolver",
+      "confidence": 53,
+      "rationale": "mentions issue; known resolver pattern"
+    }
+  ],
+  "needs": [
+    {
+      "tool": "GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID",
+      "input": "message_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_EMAIL_DRAFT",
+        "GOOGLESUPER_CREATE_REPLY",
+        "GOOGLESUPER_FETCH_EMAILS",
+        "GOOGLESUPER_FETCH_MESSAGE_BY_THREAD_ID",
+        "GOOGLESUPER_FORWARD_MESSAGE",
+        "GOOGLESUPER_SEND_EMAIL"
+      ],
+      "note": "Resolve message_id with discovery/provider tools before calling GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID."
+    },
+    {
+      "tool": "GOOGLESUPER_FETCH_MESSAGE_BY_THREAD_ID",
+      "input": "thread_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_REPLY",
+        "GOOGLESUPER_FETCH_EMAILS",
+        "GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID",
+        "GOOGLESUPER_SEND_EMAIL"
+      ],
+      "note": "Resolve thread_id with discovery/provider tools before calling GOOGLESUPER_FETCH_MESSAGE_BY_THREAD_ID."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_REPLY",
+      "input": "thread_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_FETCH_EMAILS",
+        "GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID",
+        "GOOGLESUPER_FETCH_MESSAGE_BY_THREAD_ID",
+        "GOOGLESUPER_SEND_EMAIL"
+      ],
+      "note": "Resolve thread_id with discovery/provider tools before calling GOOGLESUPER_CREATE_REPLY."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_REPLY",
+      "input": "body",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_FORWARD_MESSAGE",
+      "input": "message_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_EMAIL_DRAFT",
+        "GOOGLESUPER_CREATE_REPLY",
+        "GOOGLESUPER_FETCH_EMAILS",
+        "GOOGLESUPER_FETCH_MESSAGE_BY_MESSAGE_ID",
+        "GOOGLESUPER_FETCH_MESSAGE_BY_THREAD_ID",
+        "GOOGLESUPER_SEND_EMAIL"
+      ],
+      "note": "Resolve message_id with discovery/provider tools before calling GOOGLESUPER_FORWARD_MESSAGE."
+    },
+    {
+      "tool": "GOOGLESUPER_FORWARD_MESSAGE",
+      "input": "to",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_GET_CONTACTS",
+        "GOOGLESUPER_GET_PEOPLE"
+      ],
+      "note": "Resolve to with discovery/provider tools before calling GOOGLESUPER_FORWARD_MESSAGE."
+    },
+    {
+      "tool": "GOOGLESUPER_FORWARD_MESSAGE",
+      "input": "body",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_EMAIL_DRAFT",
+      "input": "to",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_GET_CONTACTS",
+        "GOOGLESUPER_GET_PEOPLE"
+      ],
+      "note": "Resolve to with discovery/provider tools before calling GOOGLESUPER_CREATE_EMAIL_DRAFT."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_EMAIL_DRAFT",
+      "input": "subject",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_EMAIL_DRAFT",
+      "input": "body",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_SEND_EMAIL",
+      "input": "to",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_GET_CONTACTS",
+        "GOOGLESUPER_GET_PEOPLE"
+      ],
+      "note": "Resolve to with discovery/provider tools before calling GOOGLESUPER_SEND_EMAIL."
+    },
+    {
+      "tool": "GOOGLESUPER_SEND_EMAIL",
+      "input": "subject",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_SEND_EMAIL",
+      "input": "body",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_FIND_FILE",
+      "input": "query",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_FIND_FOLDER",
+      "input": "query",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_FILE",
+      "input": "name",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_FIND_FILE",
+        "GOOGLESUPER_GET_CONTACTS",
+        "GOOGLESUPER_GET_FILE_METADATA",
+        "GOOGLESUPER_GET_PEOPLE"
+      ],
+      "note": "Resolve name with discovery/provider tools before calling GOOGLESUPER_CREATE_FILE."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_FILE",
+      "input": "folder_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_FIND_FOLDER"
+      ],
+      "note": "Resolve folder_id with discovery/provider tools before calling GOOGLESUPER_CREATE_FILE."
+    },
+    {
+      "tool": "GOOGLESUPER_GET_FILE_METADATA",
+      "input": "file_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_DOCUMENT",
+        "GOOGLESUPER_CREATE_FILE",
+        "GOOGLESUPER_CREATE_GOOGLE_SHEET1",
+        "GOOGLESUPER_FIND_FILE",
+        "GOOGLESUPER_FIND_FOLDER"
+      ],
+      "note": "Resolve file_id with discovery/provider tools before calling GOOGLESUPER_GET_FILE_METADATA."
+    },
+    {
+      "tool": "GOOGLESUPER_DOWNLOAD_FILE",
+      "input": "file_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_DOCUMENT",
+        "GOOGLESUPER_CREATE_FILE",
+        "GOOGLESUPER_CREATE_GOOGLE_SHEET1",
+        "GOOGLESUPER_FIND_FILE",
+        "GOOGLESUPER_FIND_FOLDER",
+        "GOOGLESUPER_GET_FILE_METADATA"
+      ],
+      "note": "Resolve file_id with discovery/provider tools before calling GOOGLESUPER_DOWNLOAD_FILE."
+    },
+    {
+      "tool": "GOOGLESUPER_GET_DOCUMENT_BY_ID",
+      "input": "document_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_DOCUMENT",
+        "GOOGLESUPER_INSERT_TEXT_ACTION"
+      ],
+      "note": "Resolve document_id with discovery/provider tools before calling GOOGLESUPER_GET_DOCUMENT_BY_ID."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_DOCUMENT",
+      "input": "title",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_INSERT_TEXT_ACTION",
+      "input": "document_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_DOCUMENT",
+        "GOOGLESUPER_GET_DOCUMENT_BY_ID"
+      ],
+      "note": "Resolve document_id with discovery/provider tools before calling GOOGLESUPER_INSERT_TEXT_ACTION."
+    },
+    {
+      "tool": "GOOGLESUPER_INSERT_TEXT_ACTION",
+      "input": "text",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_GOOGLE_SHEET1",
+      "input": "title",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_GET_SPREADSHEET_INFO",
+      "input": "spreadsheet_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_GOOGLE_SHEET1"
+      ],
+      "note": "Resolve spreadsheet_id with discovery/provider tools before calling GOOGLESUPER_GET_SPREADSHEET_INFO."
+    },
+    {
+      "tool": "GOOGLESUPER_GET_SHEET_NAMES",
+      "input": "spreadsheet_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_GOOGLE_SHEET1",
+        "GOOGLESUPER_GET_SPREADSHEET_INFO"
+      ],
+      "note": "Resolve spreadsheet_id with discovery/provider tools before calling GOOGLESUPER_GET_SHEET_NAMES."
+    },
+    {
+      "tool": "GOOGLESUPER_ADD_SHEET",
+      "input": "spreadsheet_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_GOOGLE_SHEET1",
+        "GOOGLESUPER_GET_SPREADSHEET_INFO"
+      ],
+      "note": "Resolve spreadsheet_id with discovery/provider tools before calling GOOGLESUPER_ADD_SHEET."
+    },
+    {
+      "tool": "GOOGLESUPER_ADD_SHEET",
+      "input": "title",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_SPREADSHEET_ROW",
+      "input": "spreadsheet_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_GOOGLE_SHEET1",
+        "GOOGLESUPER_GET_SPREADSHEET_INFO"
+      ],
+      "note": "Resolve spreadsheet_id with discovery/provider tools before calling GOOGLESUPER_CREATE_SPREADSHEET_ROW."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_SPREADSHEET_ROW",
+      "input": "sheet_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_ADD_SHEET",
+        "GOOGLESUPER_GET_SHEET_NAMES",
+        "GOOGLESUPER_GET_SPREADSHEET_INFO"
+      ],
+      "note": "Resolve sheet_id with discovery/provider tools before calling GOOGLESUPER_CREATE_SPREADSHEET_ROW."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_SPREADSHEET_ROW",
+      "input": "values",
+      "status": "ask_user",
+      "providers": [],
+      "note": "No strong provider found; ask user for values."
+    },
+    {
+      "tool": "GOOGLESUPER_EVENTS_LIST",
+      "input": "calendar_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_EVENT",
+        "GOOGLESUPER_FIND_EVENT",
+        "GOOGLESUPER_LIST_CALENDARS"
+      ],
+      "note": "Resolve calendar_id with discovery/provider tools before calling GOOGLESUPER_EVENTS_LIST."
+    },
+    {
+      "tool": "GOOGLESUPER_FIND_EVENT",
+      "input": "calendar_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_EVENT",
+        "GOOGLESUPER_EVENTS_LIST",
+        "GOOGLESUPER_LIST_CALENDARS"
+      ],
+      "note": "Resolve calendar_id with discovery/provider tools before calling GOOGLESUPER_FIND_EVENT."
+    },
+    {
+      "tool": "GOOGLESUPER_FIND_EVENT",
+      "input": "query",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_EVENT",
+      "input": "calendar_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_EVENTS_LIST",
+        "GOOGLESUPER_FIND_EVENT",
+        "GOOGLESUPER_LIST_CALENDARS"
+      ],
+      "note": "Resolve calendar_id with discovery/provider tools before calling GOOGLESUPER_CREATE_EVENT."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_EVENT",
+      "input": "summary",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_LIST_CALENDARS"
+      ],
+      "note": "Resolve summary with discovery/provider tools before calling GOOGLESUPER_CREATE_EVENT."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_EVENT",
+      "input": "start_time",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_EVENT",
+      "input": "end_time",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_DELETE_EVENT",
+      "input": "calendar_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_EVENT",
+        "GOOGLESUPER_EVENTS_LIST",
+        "GOOGLESUPER_FIND_EVENT",
+        "GOOGLESUPER_LIST_CALENDARS"
+      ],
+      "note": "Resolve calendar_id with discovery/provider tools before calling GOOGLESUPER_DELETE_EVENT."
+    },
+    {
+      "tool": "GOOGLESUPER_DELETE_EVENT",
+      "input": "event_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_EVENT",
+        "GOOGLESUPER_EVENTS_LIST",
+        "GOOGLESUPER_FIND_EVENT"
+      ],
+      "note": "Resolve event_id with discovery/provider tools before calling GOOGLESUPER_DELETE_EVENT."
+    },
+    {
+      "tool": "GOOGLESUPER_CREATE_TASK_LIST",
+      "input": "title",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GOOGLESUPER_INSERT_TASK",
+      "input": "tasklist_id",
+      "status": "resolvable",
+      "providers": [
+        "GOOGLESUPER_CREATE_TASK_LIST",
+        "GOOGLESUPER_LIST_ALL_TASKS"
+      ],
+      "note": "Resolve tasklist_id with discovery/provider tools before calling GOOGLESUPER_INSERT_TASK."
+    },
+    {
+      "tool": "GOOGLESUPER_INSERT_TASK",
+      "input": "title",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GITHUB_FIND_REPOSITORIES",
+      "input": "query",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GITHUB_GET_A_REPOSITORY",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_GET_A_REPOSITORY."
+    },
+    {
+      "tool": "GITHUB_GET_A_REPOSITORY",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_GET_A_REPOSITORY."
+    },
+    {
+      "tool": "GITHUB_CREATE_AN_ISSUE",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_CREATE_AN_ISSUE."
+    },
+    {
+      "tool": "GITHUB_CREATE_AN_ISSUE",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_CREATE_AN_ISSUE."
+    },
+    {
+      "tool": "GITHUB_CREATE_AN_ISSUE",
+      "input": "title",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GITHUB_CREATE_AN_ISSUE",
+      "input": "body",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GITHUB_GET_AN_ISSUE",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_GET_AN_ISSUE."
+    },
+    {
+      "tool": "GITHUB_GET_AN_ISSUE",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_GET_AN_ISSUE."
+    },
+    {
+      "tool": "GITHUB_GET_AN_ISSUE",
+      "input": "issue_number",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_CREATE_AN_ISSUE",
+        "GITHUB_CREATE_AN_ISSUE_COMMENT"
+      ],
+      "note": "Resolve issue_number with discovery/provider tools before calling GITHUB_GET_AN_ISSUE."
+    },
+    {
+      "tool": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE."
+    },
+    {
+      "tool": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE."
+    },
+    {
+      "tool": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+      "input": "issue_number",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_CREATE_AN_ISSUE",
+        "GITHUB_GET_AN_ISSUE",
+        "GITHUB_CREATE_AN_ISSUE_COMMENT"
+      ],
+      "note": "Resolve issue_number with discovery/provider tools before calling GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE."
+    },
+    {
+      "tool": "GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE",
+      "input": "assignees",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_GET_AN_ISSUE"
+      ],
+      "note": "Resolve assignees with discovery/provider tools before calling GITHUB_ADD_ASSIGNEES_TO_AN_ISSUE."
+    },
+    {
+      "tool": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_CREATE_AN_ISSUE_COMMENT."
+    },
+    {
+      "tool": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_CREATE_AN_ISSUE_COMMENT."
+    },
+    {
+      "tool": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+      "input": "issue_number",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_CREATE_AN_ISSUE",
+        "GITHUB_GET_AN_ISSUE"
+      ],
+      "note": "Resolve issue_number with discovery/provider tools before calling GITHUB_CREATE_AN_ISSUE_COMMENT."
+    },
+    {
+      "tool": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+      "input": "body",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GITHUB_FIND_PULL_REQUESTS",
+      "input": "query",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_PULL_REQUEST",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_CREATE_A_PULL_REQUEST."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_PULL_REQUEST",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_CREATE_A_PULL_REQUEST."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_PULL_REQUEST",
+      "input": "title",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_PULL_REQUEST",
+      "input": "head",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_GET_A_PULL_REQUEST"
+      ],
+      "note": "Resolve head with discovery/provider tools before calling GITHUB_CREATE_A_PULL_REQUEST."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_PULL_REQUEST",
+      "input": "base",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_GET_A_PULL_REQUEST"
+      ],
+      "note": "Resolve base with discovery/provider tools before calling GITHUB_CREATE_A_PULL_REQUEST."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_PULL_REQUEST",
+      "input": "body",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GITHUB_GET_A_PULL_REQUEST",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_GET_A_PULL_REQUEST."
+    },
+    {
+      "tool": "GITHUB_GET_A_PULL_REQUEST",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_GET_A_PULL_REQUEST."
+    },
+    {
+      "tool": "GITHUB_GET_A_PULL_REQUEST",
+      "input": "pull_number",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_CREATE_A_PULL_REQUEST",
+        "GITHUB_FIND_PULL_REQUESTS"
+      ],
+      "note": "Resolve pull_number with discovery/provider tools before calling GITHUB_GET_A_PULL_REQUEST."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+      "input": "pull_number",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_CREATE_A_PULL_REQUEST",
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_GET_A_PULL_REQUEST"
+      ],
+      "note": "Resolve pull_number with discovery/provider tools before calling GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_REVIEW_FOR_A_PULL_REQUEST",
+      "input": "body",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GITHUB_GET_A_BRANCH",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_GET_A_BRANCH."
+    },
+    {
+      "tool": "GITHUB_GET_A_BRANCH",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_GET_A_BRANCH."
+    },
+    {
+      "tool": "GITHUB_GET_A_BRANCH",
+      "input": "branch",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve branch with discovery/provider tools before calling GITHUB_GET_A_BRANCH."
+    },
+    {
+      "tool": "GITHUB_GET_A_COMMIT",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_GET_A_COMMIT."
+    },
+    {
+      "tool": "GITHUB_GET_A_COMMIT",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_GET_A_COMMIT."
+    },
+    {
+      "tool": "GITHUB_GET_A_COMMIT",
+      "input": "ref",
+      "status": "ask_user",
+      "providers": [],
+      "note": "No strong provider found; ask user for ref."
+    },
+    {
+      "tool": "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS."
+    },
+    {
+      "tool": "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS."
+    },
+    {
+      "tool": "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+      "input": "path",
+      "status": "ask_user",
+      "providers": [],
+      "note": "No strong provider found; ask user for path."
+    },
+    {
+      "tool": "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+      "input": "content",
+      "status": "literal_or_user",
+      "providers": [],
+      "note": "Task-specific content/value; usually ask the user or derive from the user instruction."
+    },
+    {
+      "tool": "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+      "input": "branch",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_GET_A_BRANCH",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve branch with discovery/provider tools before calling GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS."
+    },
+    {
+      "tool": "GITHUB_LIST_REPOSITORY_WORKFLOWS",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_LIST_REPOSITORY_WORKFLOWS."
+    },
+    {
+      "tool": "GITHUB_LIST_REPOSITORY_WORKFLOWS",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_LIST_REPOSITORY_WORKFLOWS."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "input": "workflow_id",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_LIST_REPOSITORY_WORKFLOWS",
+        "GITHUB_GET_A_WORKFLOW_RUN"
+      ],
+      "note": "Resolve workflow_id with discovery/provider tools before calling GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+      "input": "ref",
+      "status": "ask_user",
+      "providers": [],
+      "note": "No strong provider found; ask user for ref."
+    },
+    {
+      "tool": "GITHUB_GET_A_WORKFLOW_RUN",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_GET_A_WORKFLOW_RUN."
+    },
+    {
+      "tool": "GITHUB_GET_A_WORKFLOW_RUN",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_GET_A_WORKFLOW_RUN."
+    },
+    {
+      "tool": "GITHUB_GET_A_WORKFLOW_RUN",
+      "input": "run_id",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT"
+      ],
+      "note": "Resolve run_id with discovery/provider tools before calling GITHUB_GET_A_WORKFLOW_RUN."
+    },
+    {
+      "tool": "GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS."
+    },
+    {
+      "tool": "GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS."
+    },
+    {
+      "tool": "GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS",
+      "input": "run_id",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_GET_A_WORKFLOW_RUN",
+        "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT"
+      ],
+      "note": "Resolve run_id with discovery/provider tools before calling GITHUB_DOWNLOAD_WORKFLOW_RUN_LOGS."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_RELEASE",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_CREATE_A_RELEASE."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_RELEASE",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_CREATE_A_RELEASE."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_RELEASE",
+      "input": "tag_name",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_GET_A_RELEASE"
+      ],
+      "note": "Resolve tag_name with discovery/provider tools before calling GITHUB_CREATE_A_RELEASE."
+    },
+    {
+      "tool": "GITHUB_CREATE_A_RELEASE",
+      "input": "name",
+      "status": "ask_user",
+      "providers": [],
+      "note": "No strong provider found; ask user for name."
+    },
+    {
+      "tool": "GITHUB_GET_A_RELEASE",
+      "input": "owner",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve owner with discovery/provider tools before calling GITHUB_GET_A_RELEASE."
+    },
+    {
+      "tool": "GITHUB_GET_A_RELEASE",
+      "input": "repo",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_FIND_PULL_REQUESTS",
+        "GITHUB_FIND_REPOSITORIES",
+        "GITHUB_GET_A_REPOSITORY"
+      ],
+      "note": "Resolve repo with discovery/provider tools before calling GITHUB_GET_A_RELEASE."
+    },
+    {
+      "tool": "GITHUB_GET_A_RELEASE",
+      "input": "release_id",
+      "status": "resolvable",
+      "providers": [
+        "GITHUB_CREATE_A_RELEASE"
+      ],
+      "note": "Resolve release_id with discovery/provider tools before calling GITHUB_GET_A_RELEASE."
+    },
+    {
+      "tool": "GITHUB_GET_A_USER",
+      "input": "username",
+      "status": "ask_user",
+      "providers": [],
+      "note": "No strong provider found; ask user for username."
+    }
+  ]
+}
